@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  var student = {
+    "name" : "易烊千玺",
+    "age" : 19,
+    "gender" : true
+  }
+  //将json对象转为字符串
+  var JSONStr = JSON.stringify(student);
+  alert(JSONStr);
+
+  // 将字符串转为json对象
+  var jsonObj = JSON.parse(JSONStr);
+  alert(jsonObj);
+</script>
+</html>

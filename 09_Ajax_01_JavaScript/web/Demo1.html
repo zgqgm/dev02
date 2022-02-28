@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testAjax</title>
+</head>
+<body>
+<button type="button" onclick="ajax()">点我一下</button>
+<script>
+    // 不要记
+    function ajax() {
+        var xmlHttp;
+        if (window.XMLHttpRequest){
+            // 如果浏览器比较高级：ie7以上
+            xmlHttp = new XMLHttpRequest();
+        }else {
+            // 如果浏览器比较垃圾
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 建立一个连接
+        xmlHttp.open("GET", "ajax?username=易烊千玺&password=123");
+        // 发送请求
+        xmlHttp.send()
+        // 接收服务器的回送的响应内容
+        xmlHttp.onreadystatechange = function () {
+            // 判断是否访问成功
+            if (xmlHttp.readyState === 4 && xmlHttp.status === 200){
+                // 获取服务器响应的内容
+                var content = xmlHttp.responseText;
+                alert(content);
+            }
+        }
+    }
+</script>
+</body>
+</html>

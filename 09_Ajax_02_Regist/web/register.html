@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<table align="center">
+    <caption>注册</caption>
+    <tr>
+        <td>账号</td>
+        <td>
+            <input id="username" type="text" name="username" oninput="account()">
+            <i class="username_after"></i>
+        </td>
+    </tr>
+    <tr>
+        <td>密码</td>
+        <td>
+            <input id="password" type="password" name="password" oninput="Password()">
+            <i class="password_after"></i>
+        </td>
+    </tr>
+    <tr>
+        <td>确认密码</td>
+        <td>
+            <input id="confirm" type="password" name="password" onchange="confirm()">
+            <i class="confirm_after"></i>
+        </td>
+    </tr>
+    <tr align="center">
+        <td colspan="2">
+            <input type="button" value="注册" onclick="register()">
+            <input type="reset" value="重置" onclick="reset()">
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+    var isUsername = false;
+    var isPassword = false;
+    var isConfirm = false;
+    var isregister = true;
+    function account(){
+        var username = $("#username").val();
+        var usernameInfo = $(".username_after");
+        if (username === null || username === ''){
+            usernameInfo.html('账号不能为空');
+            usernameInfo.attr('style','color:red');
+            isUsername = false;
+        }else {
+            $.ajax({
+                url:"register",
+                type:"get",
+                data:{"username":username},
+                success:function (data) {
+                    if (data !== 'false'){
+                        usernameInfo.html('该账号已被占用');
+                        usernameInfo.attr('style','color:red');
+                        isUsername = false;
+                    }else {
+                        usernameInfo.html('');
+                        usernameInfo.attr('style','color:#000');
+                        isUsername = true;
+                    }
+                }
+            })
+        }
+    }
+    function Password(){
+        var pass = $("#password").val();
+        var passInfo = $(".password_after");
+        if (pass === null || pass === ""){
+            passInfo.html("密码不能为空");
+            passInfo.attr('style','color:red');
+            isPassword = false;
+        }else {
+            passInfo.html("");
+            passInfo.attr('style','color:#000');
+            isPassword = true;
+        }
+    }
+    function confirm(){
+        var confirmInfo = $(".confirm_after");
+        var pass1 = $("#password").val();
+        var pass2 = $("#confirm").val();
+        if (pass1 === pass2){
+            confirmInfo.html("");
+            isConfirm = true;
+        }else if (pass2 === null || pass2 ===""){
+            confirmInfo.html("两次出入密码不同");
+            confirmInfo.attr('style','color:red');
+            isConfirm = false;
+        }
+    }
+    function register() {
+        if (isregister){
+            confirm();
+            Password();
+            account();
+        }
+        if (isConfirm&&isUsername&&isPassword){
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                url: "main",
+                type: "post",
+                data: {'username':username,'password':password},
+                success:function (data){
+                    if (data === 'true'){
+                        alert("注册成功");
+                        isregister = false;
+                    }else {
+                        alert("当前网络拥挤，请稍后再试...");
+                    }
+                }
+            })
+        }
+
+    }
+    function reset(){
+        $("#username").val("");
+        $("#confirm").val("");
+        $("#password").val("")
+
+    }
+</script>
+</html>

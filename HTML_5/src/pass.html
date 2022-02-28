@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="get">
+        <label>用户名:</label>
+            <input type="text" value="" name="账号">
+        <label>密&nbsp;&nbsp;码:</label>
+            <input type="password" value="" name="密码">
+        <input type="submit" value="登录">
+    </form>
+</body>
+<script type="text/javascript">
+    var students= {
+        "name" : ["易烊千玺", "迪丽热巴", "古力娜扎"],
+        "age" : [21, 31, 41],
+        "info" : ["四个字", "不一定", "是成语"]
+    };
+
+    var names = students.name;
+    var age = students.age;
+    var info = students.info;
+
+    for (var key in names) {
+        alert(names[key]+"\n"+age[key]+"\n"+info[key]);
+    }
+
+
+</script>
+</html>

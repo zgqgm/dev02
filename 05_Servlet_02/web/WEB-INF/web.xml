@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--可以配置Servlet的请求路径-->
+    <!--必须声明Servlet的名称和对应的完整的包名.类名-->
+    <servlet>
+        <servlet-name>config</servlet-name>
+        <servlet-class>com.fc.servlet.ConfigServlet</servlet-class>
+
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>迪丽热巴</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>age</param-name>
+            <param-value>32</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>gender</param-name>
+            <param-value>女</param-value>
+        </init-param>
+
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!--将Servlet名和url进行绑定-->
+    <servlet-mapping>
+        <servlet-name>config</servlet-name>
+        <url-pattern>/config1</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>config</servlet-name>
+        <url-pattern>/config2</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>config</servlet-name>
+        <url-pattern>/config3</url-pattern>
+    </servlet-mapping>
+</web-app>
