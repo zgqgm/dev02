@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/lib/mysql-connector-java-5.1.47.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-dbutils-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-fileupload-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jackson-core-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jackson-databind-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-io-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jackson-annotations-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/druid-1.0.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -514,7 +514,7 @@ function checkbox_this(){
     let tiaojian ="";
     let gender = "";
     (function (){
-        const res ={};
+        //const res ={};
         const search = window.location.search.substr(1);//截取？后所有内容
         search.split('&').forEach(item => {//拆分成数组，并遍历
             const arr = item.split('=');
